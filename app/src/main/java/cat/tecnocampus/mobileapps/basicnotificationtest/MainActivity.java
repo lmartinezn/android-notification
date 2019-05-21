@@ -3,6 +3,7 @@ package cat.tecnocampus.mobileapps.basicnotificationtest;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private Button sendButton;
 
     private static final String CHANNEL_ID = "123456789";
+    private static final int NOTIFICATION_ID = 44;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                sendNotification("Hello World!");
             }
         });
     }
@@ -79,5 +81,10 @@ public class MainActivity extends AppCompatActivity {
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent)
         ;
+
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build());
     }
 }
