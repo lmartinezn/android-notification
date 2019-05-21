@@ -36,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
                     tag,
                     NotificationManager.IMPORTANCE_DEFAULT
             );
+
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
         }
     }
 }
