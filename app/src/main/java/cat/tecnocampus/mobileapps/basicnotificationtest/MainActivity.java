@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sendNotification(String content) {
+        createNotificationChannel();
+
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
